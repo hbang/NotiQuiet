@@ -1,0 +1,11 @@
+Package: ws.hbang.notiquiet
+Name: NotiQuiet
+Pre-Depends: firmware (>= 5.0)
+Depends: mobilesubstrate, applist (>= 1.3)
+Suggests: sbsettings
+Version: 1.1~beta1
+Architecture: iphoneos-arm
+Description: Disable notifications when particular apps are open
+Maintainer: thekirbylover
+Author: thekirbylover
+Section: Tweaks
