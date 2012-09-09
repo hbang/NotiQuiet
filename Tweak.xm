@@ -7,8 +7,9 @@
  */
 
 #define prefpath @"/var/mobile/Library/Preferences/ws.hbang.notiquiet.plist"
-#define __(key) [[NSBundle bundleWithPath:@"/Library/PreferenceBundles/NotiQuiet.bundle"]localizedStringForKey:key value:key table:@"NotiQuiet"]
+#define __(key) [bundle localizedStringForKey:key value:key table:@"NotiQuiet"]
 
+static NSBundle *bundle;
 static NSDictionary *prefs;
 static BOOL firstRun=NO;
 
@@ -74,4 +75,5 @@ static void ADNQPrefsUpdate(CFNotificationCenterRef center,void *observer,CFStri
 	%init;
 	ADNQPrefsLoad();
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(),NULL,&ADNQPrefsUpdate,CFSTR("ws.hbang.notiquiet/ReloadPrefs"),NULL,0);
+	bundle=[[NSBundle bundleWithPath:@"/Library/PreferenceBundles/NotiQuiet.bundle"]retain];
 }
