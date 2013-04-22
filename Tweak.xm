@@ -15,9 +15,11 @@ static BOOL firstRun = NO;
 
 @interface SpringBoard : UIApplication
 @end
+
 @interface UIApplication (thekirbylover)
 -(void)applicationOpenURL:(NSURL *)url publicURLsOnly:(BOOL)publicURLs;
 @end
+
 @interface SBUserAgent : NSObject
 +(SBUserAgent *)sharedUserAgent;
 -(NSString *)foregroundApplicationDisplayID;
@@ -26,6 +28,7 @@ static BOOL firstRun = NO;
 @interface ADNQWelcomeDelegate : NSObject <UIAlertViewDelegate>
 -(void)showAlertIfNecessary;
 @end
+
 @implementation ADNQWelcomeDelegate
 -(void)showAlertIfNecessary {
 	if (firstRun) {
@@ -44,6 +47,7 @@ static BOOL firstRun = NO;
 %hook SBBulletinBannerController
 -(void)observer:(id)observer addBulletin:(id)bulletin forFeed:(unsigned)feed {
 	NSString *currentApp = [[%c(SBUserAgent) sharedUserAgent] foregroundApplicationDisplayID];
+
 	if (([prefs objectForKey:@"Enabled"] && ![[prefs objectForKey:@"Enabled"] boolValue])
 		|| !currentApp || !([prefs objectForKey:[@"App-" stringByAppendingString:currentApp]]
 		&& [[prefs objectForKey:[@"App-" stringByAppendingString:currentApp]] boolValue])) {
@@ -54,6 +58,7 @@ static BOOL firstRun = NO;
 %hook SBUIController
 -(void)finishedUnscattering {
 	%orig;
+
 	if (firstRun) {
 		ADNQWelcomeDelegate *welc = [[ADNQWelcomeDelegate alloc]init];
 		[welc showAlertIfNecessary]; //memory leak?
@@ -63,7 +68,7 @@ static BOOL firstRun = NO;
 %end
 
 static void ADNQPrefsLoad() {
-	if ([[NSFileManager defaultManager]fileExistsAtPath:prefpath]) {
+	if ([[NSFileManager defaultManager] fileExistsAtPath:prefpath]) {
 		prefs = [[NSDictionary alloc] initWithContentsOfFile:prefpath];
 	} else {
 		firstRun = YES;
