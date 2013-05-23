@@ -1,7 +1,7 @@
 include theos/makefiles/common.mk
 
 BUNDLE_NAME = NotiQuiet
-NotiQuiet_FILES = NotiQuiet.mm
+NotiQuiet_FILES = ADNQListController.m
 NotiQuiet_INSTALL_PATH = /Library/PreferenceBundles
 NotiQuiet_FRAMEWORKS = UIKit
 NotiQuiet_PRIVATE_FRAMEWORKS = Preferences
