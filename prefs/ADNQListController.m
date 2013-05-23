@@ -1,4 +1,4 @@
-#import <Preferences/PSListController.h>
+#import "ADNQListController.h"
 
 @implementation ADNQListController
 - (id)specifiers {
