@@ -6,7 +6,6 @@
  * Not based on any other tweaks (tm)
  */
 
-#import <SpringBoard/SpringBoard.h>
 #import <SpringBoard/SBUserAgent.h>
 #import "ADNQWelcomeDelegate.h"
 
