@@ -64,7 +64,7 @@
 		</dict>
 		<dict>
 			<key>action</key>
-			<string>adtwitter:</string>
+			<string>followOnTwitter</string>
 			<key>cell</key>
 			<string>PSLinkCell</string>
 			<key>icon</key>
