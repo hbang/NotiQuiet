@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>NotiQuiet</string>
 	<key>CFBundleIdentifier</key>
-	<string>ws.hbang.notiquiet.prefs</string>
+	<string>ws.hbang.notiquiet</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -18,11 +18,7 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>DTPlatformName</key>
-	<string>iphoneos</string>
-	<key>MinimumOSVersion</key>
-	<string>3.0</string>
 	<key>NSPrincipalClass</key>
-	<string>ADNQMainController</string>
+	<string>HBRootListController</string>
 </dict>
 </plist>
