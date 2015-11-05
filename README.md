@@ -1,8 +1,4 @@
-# NotiQuiet - disable push notifications inside particular apps
-## Internals
-* [AppList](http://github.com/rpetrich/AppList) is used to allow the user to choose apps from the Settings.app panel
-* When a notification comes in, if the foreground app's bundle ID matches one in the list, it's hidden by not running `%orig` in the notification displaying method. This still allows it to appear in the NC.
+# NotiQuiet
+Hide banner notifications while inside particular apps
 
-## License
-[MIT](http://adam.mit-license.org). 
-Icons are [CC-BY](http://creativecommons.org/licenses/by/3.0), from [Jigsoar Icons](http://jigsoaricons.com). 
+This tweak was originally made by @kirb as part of HASHBANG productions. I rewrote this tweak based off of the original code for iOS 8.4 and improved the preferences. This is open sourced under the MIT license.
