@@ -1,5 +1,6 @@
 #import <Preferences/PSListController.h>
+#import <MessageUI/MessageUI.h>
 
-@interface HBNQRootListController : PSListController
+@interface HBNQRootListController : PSListController <MFMailComposeViewControllerDelegate>
 
 @end
