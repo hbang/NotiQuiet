@@ -7,10 +7,6 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>Settings</string>
 		</dict>
@@ -24,7 +20,7 @@
 			<key>key</key>
 			<string>enabled</string>
 			<key>PostNotification</key>
-			<string>ws.hbang.notiquiet/preferenceschanged</string>
+			<string>ws.hbang.notiquiet/ReloadPrefs</string>
 			<key>label</key>
 			<string>Enabled</string>
 			<key>icon</key>
@@ -40,11 +36,11 @@
 			<key>label</key>
 			<string>Choose apps to hide notifications in</string>
 			<key>icon</key>
-			<string>Choose.png</string>
+			<string>Config.png</string>
 			<key>ALAllowsSelection</key>
 			<string>1</string>
 			<key>ALChangeNotification</key>
-			<string>ws.hbang.notiquiet/preferenceschanged</string>
+			<string>ws.hbang.notiquiet/ReloadPrefs</string>
 			<key>ALSettingsKeyPrefix</key>
 			<string>App-</string>
 			<key>ALSettingsPath</key>

@@ -1,5 +1,5 @@
 #include "HBNQRootListController.h"
-#import <MobileGestalt/MobileGestalt.h>
+#import <CepheiPrefs/HBSupportController.h>
 
 @implementation HBNQRootListController
 
@@ -24,25 +24,12 @@
 }
 
 - (void)showSupportEmailController {
-    MFMailComposeViewController *emailController = [[MFMailComposeViewController alloc] init];
-    emailController.subject = @"NotiQuiet Support";
-    emailController.toRecipients = @[@"HASHBANG Productions Support <support@hbang.ws>"];
-
-    NSString *product = (NSString *)MGCopyAnswer(kMGProductType);
-    NSString *version = (NSString *)MGCopyAnswer(kMGProductVersion);
-    NSString *build = (NSString *)MGCopyAnswer(kMGBuildVersion);
-
-    [emailController setMessageBody:[NSString stringWithFormat:@"\n\nCurrent Device: %@, iOS %@ (%@)", product, version, build] isHTML:NO];
-
-    system("/usr/bin/dpkg -l >/tmp/dpkgl.log");
-    [emailController addAttachmentData:[NSData dataWithContentsOfFile:@"/tmp/dpkgl.log"] mimeType:@"text/plain" fileName:@"dpkgl.txt"];
-    [self.navigationController presentViewController:emailController animated:YES completion:nil];
-    emailController.mailComposeDelegate = self;
-    [emailController release];
+	UIViewController *viewController = (UIViewController *)[HBSupportController supportViewControllerForBundle:[NSBundle bundleForClass:self.class] preferencesIdentifier:@"ws.hbang.notiquiet"];
+	[self.navigationController pushViewController:viewController animated:YES];
 }
 
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
-    [self dismissViewControllerAnimated: YES completion: nil];
+- (void)openSupportFAQ {
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.hbang.ws/faq/"]];
 }
 
 @end

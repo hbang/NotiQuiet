@@ -1,5 +1,5 @@
-#import <Preferences/PSListController.h>
+#import <CepheiPrefs/HBListController.h>
 
-@interface HBNQRootListController : PSListController
+@interface HBNQRootListController : HBListController
 
 @end

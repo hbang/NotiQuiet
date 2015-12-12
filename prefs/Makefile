@@ -5,7 +5,7 @@ NotiQuiet_FILES = HBNQRootListController.m
 NotiQuiet_INSTALL_PATH = /Library/PreferenceBundles
 NotiQuiet_FRAMEWORKS = UIKit
 NotiQuiet_PRIVATE_FRAMEWORKS = Preferences
-NotiQuiet_EXTRA_FRAMEWORKS = Cephei
+NotiQuiet_EXTRA_FRAMEWORKS = CepheiPrefs
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 

@@ -3,7 +3,7 @@ include $(THEOS)/makefiles/common.mk
 BUNDLE_NAME = NotiQuiet
 NotiQuiet_FILES = HBNQRootListController.m HBNQHeaderView.m
 NotiQuiet_INSTALL_PATH = /Library/PreferenceBundles
-NotiQuiet_FRAMEWORKS = UIKit MessageUI SocialUI CoreGraphics
+NotiQuiet_FRAMEWORKS = UIKit CoreGraphics
 NotiQuiet_PRIVATE_FRAMEWORKS = Preferences
 NotiQuiet_LIBRARIES = MobileGestalt
 

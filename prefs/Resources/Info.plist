@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>notiquiet</string>
+	<string>NotiQuiet</string>
 	<key>CFBundleIdentifier</key>
 	<string>ws.hbang.notiquiet</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -18,6 +18,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>HBPackageIdentifier</key>
+	<string>ws.hbang.notiquiet</string>
 	<key>NSPrincipalClass</key>
 	<string>HBNQRootListController</string>
 </dict>

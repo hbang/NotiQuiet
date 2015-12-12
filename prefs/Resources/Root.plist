@@ -7,10 +7,6 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
 			<key>label</key>
 			<string>Settings</string>
 		</dict>
@@ -24,7 +20,7 @@
 			<key>key</key>
 			<string>enabled</string>
 			<key>PostNotification</key>
-			<string>ws.hbang.notiquiet/preferenceschanged</string>
+			<string>ws.hbang.notiquiet/ReloadPrefs</string>
 			<key>label</key>
 			<string>Enabled</string>
 			<key>icon</key>
@@ -40,11 +36,11 @@
 			<key>label</key>
 			<string>Choose apps to hide notifications in</string>
 			<key>icon</key>
-			<string>Choose.png</string>
+			<string>Config.png</string>
 			<key>ALAllowsSelection</key>
 			<string>1</string>
 			<key>ALChangeNotification</key>
-			<string>ws.hbang.notiquiet/preferenceschanged</string>
+			<string>ws.hbang.notiquiet/ReloadPrefs</string>
 			<key>ALSettingsKeyPrefix</key>
 			<string>App-</string>
 			<key>ALSettingsPath</key>
@@ -60,21 +56,21 @@
 		</dict>
 		<dict>
 			<key>cell</key>
-			<string>PSButtonCell</string>
+			<string>PSLinkCell</string>
 			<key>label</key>
 			<string>Email HASHBANG Productions</string>
 			<key>action</key>
-			<string>emailHashbangSupport</string>
+			<string>showSupportEmailController</string>
 			<key>icon</key>
 			<string>Email.png</string>
 		</dict>
 		<dict>
 			<key>cell</key>
-			<string>PSButtonCell</string>
+			<string>PSLinkCell</string>
 			<key>label</key>
 			<string>Open HASHBANG Support FAQ</string>
 			<key>action</key>
-			<string>openHashbangSupportFAQ</string>
+			<string>openSupportFAQ</string>
 			<key>icon</key>
 			<string>Support.png</string>
 		</dict>
@@ -85,37 +81,39 @@
 			<string>Developers</string>
 		</dict>
 		<dict>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>HASHBANG productions - @hbangws</string>
-			<key>icon</key>
-			<string>hbang</string>
-			<key>action</key>
-			<string>openHashbangTwitter</string>
+		    <key>big</key>
+		    <true/>
+		    <key>cellClass</key>
+		    <string>HBTwitterCell</string>
+		    <key>height</key>
+		    <integer>56</integer>
+		    <key>label</key>
+		    <string>HASHBANG Productions</string>
+		    <key>user</key>
+		    <string>hbangws</string>
 		</dict>
 		<dict>
 			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Ben Rosen - @benr9500</string>
-			<key>icon</key>
-			<string>ben</string>
-			<key>action</key>
-			<string>openBenTwitter</string>
+			<string>PSGroupCell</string>
 		</dict>
 		<dict>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Adam Damasi (Kirb) - @hbkirb</string>
-			<key>icon</key>
-			<string>kirb</string>
-			<key>action</key>
-			<string>openKirbTwitter</string>
+		    <key>cellClass</key>
+		    <string>HBTwitterCell</string>
+		    <key>label</key>
+		    <string>Ben Rosen</string>
+		    <key>user</key>
+		    <string>benr9500</string>
+		</dict>
+		<dict>
+		    <key>cellClass</key>
+		    <string>HBTwitterCell</string>
+		    <key>label</key>
+		    <string>Adam Demasi</string>
+		    <key>user</key>
+		    <string>hbkirb</string>
 		</dict>
 	</array>
 	<key>title</key>
-	<string>notiquiet</string>
+	<string>NotiQuiet</string>
 </dict>
 </plist>
