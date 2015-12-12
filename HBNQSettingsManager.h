@@ -1,11 +1,9 @@
 @interface HBNQSettingsManager : NSObject
 
-@property (nonatomic, readonly, getter=isEnabled) BOOL enabled;
+@property (nonatomic, readonly) BOOL enabled;
 
-+ (instancetype)sharedManager;
++ (instancetype)sharedInstance;
 
-- (void)updateSettings;
-
-- (BOOL)settingsHasAppSelected:(NSString *)appIdentfier;
+- (BOOL)shouldHideNotificationsInAppWithIdentifier:(NSString *)appIdentfier;
 
 @end

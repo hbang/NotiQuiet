@@ -1,59 +1,41 @@
 #import "HBNQSettingsManager.h"
+#import <Cephei/HBPreferences.h>
 
-@interface HBNQSettingsManager ()
+static NSString *const kHBNQEnabledKey = @"Enabled";
 
-@property (nonatomic, copy) NSDictionary *settings;
+@implementation HBNQSettingsManager {
+    HBPreferences *_preferences;
+}
 
-@end
-
-@implementation HBNQSettingsManager
-
-+ (instancetype)sharedManager {
-    static dispatch_once_t p = 0;
-    __strong static id _sharedSelf = nil;
-    dispatch_once(&p, ^{
-        _sharedSelf = [[self alloc] init];
++ (instancetype)sharedInstance {
+    static HBNQSettingsManager *sharedInstance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
     });
-    return _sharedSelf;
+
+    return sharedInstance;
 }
 
-void settingsChanged(CFNotificationCenterRef center,
-                     void * observer,
-                     CFStringRef name,
-                     const void * object,
-                     CFDictionaryRef userInfo) {
-    [[HBNQSettingsManager sharedManager] updateSettings];
-}
-
-- (id)init {
+- (instancetype)init {
     if (self = [super init]) {
-        CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, settingsChanged, CFSTR("ws.hbang.notiquiet/preferenceschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
-        [self updateSettings];
+        _preferences = [[HBPreferences alloc] initWithIdentifier:@"ws.hbang.notiquiet"];
+
+        [_preferences registerBool:&_enabled default:YES forKey:kHBNQEnabledKey];
     }
-    
     return self;
 }
 
-- (void)updateSettings {
-    
-    self.settings = nil;
-    
-    CFPreferencesAppSynchronize(CFSTR("ws.hbang.notiquiet"));
-    CFStringRef appID = CFSTR("ws.hbang.notiquiet");
-    CFArrayRef keyList = CFPreferencesCopyKeyList(appID , kCFPreferencesCurrentUser, kCFPreferencesAnyHost) ?: CFArrayCreate(NULL, NULL, 0, NULL);
-    self.settings = (NSDictionary *)CFPreferencesCopyMultiple(keyList, appID , kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
-    CFRelease(keyList);
-
-    HBLogDebug(@"%@", self.settings);
-    
+- (BOOL)shouldHideNotificationsInAppWithIdentifier:(NSString *)appIdentfier {
+    return [_preferences[[NSString stringWithFormat:@"App-%@", appIdentfier]] boolValue];
 }
 
-- (BOOL)isEnabled {
-    return self.settings[@"enabled"] ? [self.settings[@"enabled"] boolValue] : YES;
-}
+#pragma mark - Memory management
 
-- (BOOL)settingsHasAppSelected:(NSString *)appIdentfier {
-    return [self.settings[[NSString stringWithFormat:@"App-%@", appIdentfier]] boolValue];
+- (void)dealloc {
+    [_preferences release];
+
+    [super dealloc];
 }
 
 @end

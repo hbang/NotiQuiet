@@ -1,5 +1,5 @@
-#import <CepheiPrefs/HBListController.h>
+#import <CepheiPrefs/HBRootListController.h>
 
-@interface HBNQRootListController : HBListController
+@interface HBNQRootListController : HBRootListController
 
 @end
